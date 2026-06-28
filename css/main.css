@@ -1,0 +1,965 @@
+/* CSS Variables Reusable colors*/
+:root {
+  /* --primary-color: #ffd700; */
+  --primary-color: #000080;
+  /* --secondary-color: #23b40a; */
+  --secondary-color: #000080;
+  /* --accent-color: #13c643; */
+  --accent-color: #ffd700;
+  --text-color: #222;
+  --white: #ffffff;
+  --spacing: 24px;
+  --border-radius: 16px;
+}
+
+/* GLOBAL RESET
+   Removes default browser spacing and
+   ensures consistent sizing  */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* PAGE LAYOUT
+   Controls overall page positioning and
+   prevents horizontal scrolling */
+body {
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Heading of name and its effect */
+
+h1 {
+  font-size: 3rem;
+  background: linear-gradient(
+    100deg,
+    var(--accent-color),
+    var(--primary-color),
+    var(--white),
+    var(--primary-color),
+    var(--accent-color)
+  );
+  background-size: 300% 300%;
+
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+
+  animation: gradientWave 8s ease infinite;
+}
+
+/* continued animation effect of heading to move color through */
+@keyframes gradientWave {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* centering and spacing my heading 
+header {
+  text-align: center;
+  padding: 50px 20px;
+  background: transparent;
+} */
+
+/* HEADER
+   Uses Flexbox because the name/logo and navigation need to sit side by side */
+/* Sticky header stays visible while scrolling */
+header {
+  position: sticky;
+  top: 10px;
+  z-index: 1000;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 60px;
+
+  padding: 20px 30px;
+
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(8px);
+
+  border-radius: 50px;
+  width: fit-content;
+  margin: 20px auto;
+
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* spacing between title and nav list */
+nav {
+  margin-top: 0;
+}
+
+/* keeps nav list at top for easy access 
+.sticky-nav {
+  position: sticky;
+  top: 10px;
+  z-index: 1000;
+
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+
+  width: fit-content;
+  margin: 0 auto;
+
+  padding: 12px 24px;
+  background-color: var(--primary-color);
+  border-radius: 50px;
+
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+} */
+
+.sticky-nav {
+  position: sticky;
+  top: 10px;
+  z-index: 1000;
+
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+
+  padding: 12px 24px;
+  background-color: var(--primary-color);
+  border-radius: 50px;
+
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* coloring my nav items text */
+nav a {
+  color: var(--accent-color);
+  text-decoration: none;
+  margin: 0 12px;
+  font-weight: bolder;
+}
+
+/* Pseudo Class Requirement, adds hover effect for nav items */
+nav a:hover {
+  color: var(--accent-color);
+}
+
+/* controls page width and spacing */
+main {
+  max-width: 1000px;
+  margin: auto;
+  padding: var(--spacing);
+}
+
+/* Selector Combination Requirement, styles the about me section */
+section.profile-section {
+  display: flex;
+  gap: var(--spacing);
+  align-items: center;
+  background-color: var(--white);
+  padding: var(--spacing);
+  border-radius: var(--border-radius);
+  margin-bottom: var(--spacing);
+}
+
+/* styles profile picture */
+.profile-section img {
+  width: 220px;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 50%;
+  background-color: #ddd;
+}
+
+/* green to gold text effect on about me */
+.bio {
+  background: linear-gradient(
+    to right,
+    var(--accent-color),
+    var(--primary-color),
+    var(--primary-color),
+    #f4b400
+  );
+
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* handles all h2 coloring and spacing */
+h2 {
+  color: var(--primary-color);
+  margin-bottom: 12px;
+}
+
+/* Pseudo Element Requirement,  decorative line below section headings */
+h2::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 4px;
+  background-color: var(--accent-color);
+  margin-top: 6px;
+  border-radius: 4px;
+}
+
+/* styles and handles spacing and color of contact button */
+.contact-button {
+  display: inline-block;
+  margin-top: 16px;
+  padding: 12px 20px;
+  background-color: var(--accent-color);
+  color: var(--primary-color);
+  text-decoration: none;
+  border-radius: var(--border-radius);
+  font-weight: bold;
+}
+
+/* handkes hover effect of contact me button */
+.contact-button:hover {
+  background-color: var(--primary-color);
+  color: var(--accent-color);
+}
+
+/* Handles section background color and spacing */
+section {
+  background-color: var(--white);
+  padding: var(--spacing);
+  border-radius: var(--border-radius);
+  margin-bottom: var(--spacing);
+}
+
+/* handles spacing and style of favorites list 
+.favorites-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  list-style: none;
+}
+
+/* styles favorites links as buttons 
+.favorites-list li a {
+  display: block;
+  background-color: var(--secondary-color);
+  padding: 18px;
+  text-align: center;
+  text-decoration: none;
+  color: var(--text-color);
+  border-radius: var(--border-radius);
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+/* Handles hover effect of favorite list items 
+.favorites-list li a:hover {
+  background: linear-gradient(135deg, gold, green);
+  color: gold;
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* base styling for fav list 
+.favorites-list li {
+  background-color: var(--secondary-color);
+  padding: 18px;
+  text-align: center;
+  border-radius: var(--border-radius);
+  font-weight: bold;
+} */
+
+/* FAVORITES IMAGE GALLERY
+   Uses Grid because image galleries work best in rows and columns */
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+}
+
+/* Makes all gallery images the same size */
+.gallery img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: var(--border-radius);
+  transition: all 0.3s ease;
+}
+
+/* Adds hover movement to gallery images */
+.gallery img:hover {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* arranges social links using flexbox */
+.social-links {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+/* Social button styling */
+.social-links a {
+  background-color: var(--primary-color);
+  color: var(--white);
+
+  padding: 12px 18px;
+  border-radius: var(--border-radius);
+  text-decoration: none;
+  font-weight: bold;
+
+  transition: all 0.3s ease;
+}
+
+/* Hover state */
+.social-links a:hover {
+  background-color: var(--accent-color);
+  color: var(--primary-color);
+
+  transform: translateY(-3px);
+
+  box-shadow: 0 0 12px rgba(35, 180, 10, 0.5);
+}
+
+/* displays name, course, and date */
+footer {
+  text-align: center;
+  background-color: var(--primary-color);
+  color: var(--white);
+  padding: 18px;
+}
+
+/* adjust layout for smaller screens */
+
+/* =========================================
+   MOBILE LAYOUT BREAKPOINT
+   Stacks content for smaller screens
+========================================= */
+@media (max-width: 700px) {
+  header {
+    flex-direction: column;
+    gap: 20px;
+    border-radius: 30px;
+  }
+
+  .sticky-nav {
+    flex-wrap: wrap;
+  }
+
+  section.profile-section {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .gallery {
+    grid-template-columns: 1fr;
+  }
+
+  .social-links {
+    justify-content: center;
+  }
+}
+
+/* Desktop layout */
+@media (min-width: 1024px) {
+  main {
+    max-width: 1100px;
+  }
+
+  .gallery {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Style only */
+@media (max-width: 900px) {
+  h1 {
+    font-size: 2.5rem;
+  }
+
+  h2 {
+    font-size: 1.6rem;
+  }
+}
+
+/* Style only */
+@media (max-width: 500px) {
+  .contact-button,
+  .social-links a {
+    font-size: 0.9rem;
+    border-radius: 30px;
+  }
+
+  .gallery img {
+    height: 180px;
+  }
+}
+
+/* adds floating effect to profile image */
+.profile-section img {
+  animation: float 4s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* add a pulse effect to contact button */
+.contact-button {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(255, 215, 0, 0.6);
+  }
+
+  70% {
+    box-shadow: 0 0 0 12px rgba(255, 215, 0, 0);
+  }
+
+  100% {
+    box-shadow: 0 0 0 0 rgba(255, 215, 0, 0);
+  }
+}
+
+/* add a movement effect when you hover over each section */
+section {
+  transition: all 0.3s ease;
+}
+
+section:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* add moving images in background for page effect */
+.background-animation {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.background-animation span {
+  position: absolute;
+  display: block;
+  width: 80px;
+  height: 80px;
+  background: rgba(255, 215, 0, 0.25);
+  border-radius: 50%;
+  animation: moveShapes 12s linear infinite;
+}
+
+.background-animation span:nth-child(1) {
+  left: 10%;
+  animation-delay: 0s;
+}
+
+.background-animation span:nth-child(2) {
+  left: 30%;
+  width: 120px;
+  height: 120px;
+  background: var(--primary-color);
+  animation-delay: 2s;
+}
+
+.background-animation span:nth-child(3) {
+  left: 50%;
+  animation-delay: 4s;
+}
+
+.background-animation span:nth-child(4) {
+  left: 70%;
+  width: 100px;
+  height: 100px;
+  background: rgba(255, 215, 0, 0.2);
+  animation-delay: 6s;
+}
+
+.background-animation span:nth-child(5) {
+  left: 90%;
+  background: var(--primary-color);
+  animation-delay: 8s;
+}
+
+@keyframes moveShapes {
+  0% {
+    bottom: -150px;
+    transform: translateX(0) rotate(0deg);
+    opacity: 0;
+  }
+
+  30% {
+    opacity: 1;
+  }
+
+  100% {
+    bottom: 100%;
+    transform: translateX(80px) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+/* styles my headers above my favorite piuctures */
+.gallery figcaption {
+  text-align: center;
+  color: var(--secondary-color);
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+}
+
+/* Needed for image overlays */
+.gallery figure {
+  margin: 0;
+}
+
+.gallery a {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  border-radius: var(--border-radius);
+}
+
+/* Overlay text */
+.overlay {
+  position: absolute;
+  inset: 0;
+
+  background: rgba(0, 0, 0, 0.4);
+  color: white;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  text-align: center;
+  padding: 15px;
+
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+/* Show overlay when hovering */
+.gallery a:hover .overlay {
+  opacity: 1;
+}
+
+.bio {
+  overflow: hidden;
+  border-right: 2px solid gold;
+}
+
+/* handles the quick typing effect above about me */
+.typing-text {
+  display: inline-block;
+  color: var(--secondary-color);
+  font-weight: bold;
+  margin-bottom: 12px;
+
+  overflow: hidden;
+  white-space: nowrap;
+
+  width: 0;
+  max-width: fit-content;
+}
+
+/* Starts typing only after mission begins */
+.typing-text.start-typing {
+  animation: typing 4s steps(48, end) forwards;
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes blink {
+  50% {
+    border-color: transparent;
+  }
+}
+
+/* added an easter egg to my page, handles styling and color */
+#navy-message {
+  position: fixed;
+  top: 100px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  background: #001f3f;
+  color: gold;
+
+  padding: 15px 25px;
+  border-radius: 30px;
+
+  opacity: 0;
+  transition: 0.5s;
+
+  z-index: 9999;
+}
+
+.navy-mode {
+  background: linear-gradient(135deg, #001f3f, #003366, #001f3f);
+}
+
+/* MATRIX EASTER EGG MODE */
+.matrix-mode {
+  background: #000;
+  color: #00ff41;
+}
+
+.matrix-mode section {
+  background-color: rgba(0, 0, 0, 0.85);
+  border: 1px solid #00ff41;
+  box-shadow: 0 0 20px rgba(0, 255, 65, 0.4);
+}
+
+.matrix-mode header {
+  background: rgba(0, 0, 0, 0.75);
+  border: 1px solid #00ff41;
+  box-shadow: 0 0 25px rgba(0, 255, 65, 0.6);
+}
+
+.matrix-mode h1,
+.matrix-mode h2,
+.matrix-mode .typing-text,
+.matrix-mode .bio,
+.matrix-mode figcaption {
+  color: #00ff41;
+  background: none;
+  -webkit-background-clip: initial;
+  background-clip: initial;
+  filter: drop-shadow(0 0 8px #00ff41);
+}
+
+.matrix-mode .sticky-nav,
+.matrix-mode .social-links a,
+.matrix-mode .contact-button {
+  background-color: #00ff41;
+  color: #000;
+}
+
+.matrix-mode nav a {
+  color: #000;
+}
+
+.matrix-mode footer {
+  background-color: #000;
+  color: #00ff41;
+  border-top: 1px solid #00ff41;
+}
+
+#matrix-message {
+  position: fixed;
+  top: 150px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  background: #000;
+  color: #00ff41;
+
+  padding: 15px 25px;
+  border-radius: 30px;
+  border: 1px solid #00ff41;
+
+  opacity: 0;
+  transition: 0.5s;
+
+  z-index: 9999;
+}
+
+/* ===========================
+   WELCOME SCREEN
+=========================== */
+
+#welcome-screen {
+  position: fixed;
+  inset: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(8px);
+
+  z-index: 99999;
+
+  transition: 0.8s;
+}
+
+.welcome-card {
+  width: 600px;
+  max-width: 90%;
+
+  background: white;
+
+  border-radius: 25px;
+
+  padding: 45px;
+
+  text-align: center;
+
+  box-shadow: 0 0 40px rgba(255, 215, 0, 0.35);
+
+  animation: cardFloat 3s ease-in-out infinite;
+}
+
+.welcome-card h1 {
+  margin-bottom: 25px;
+}
+
+.welcome-name {
+  font-size: 2rem;
+  font-weight: bold;
+
+  color: var(--secondary-color);
+
+  margin-bottom: 15px;
+}
+
+.mission {
+  margin: 30px 0;
+
+  font-style: italic;
+
+  color: #555;
+}
+
+#begin-mission {
+  padding: 18px 35px;
+
+  border: none;
+
+  border-radius: 40px;
+
+  cursor: pointer;
+
+  font-size: 1.1rem;
+  font-weight: bold;
+
+  background: var(--primary-color);
+
+  color: var(--accent-color);
+
+  transition: 0.3s;
+}
+
+#begin-mission:hover {
+  background: var(--secondary-color);
+
+  color: var(--white);
+
+  transform: scale(1.08);
+}
+
+@keyframes cardFloat {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+/* ===========================
+   CLASSIFIED TERMINAL
+=========================== */
+
+#classified-screen {
+  position: fixed;
+  inset: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: rgba(0, 0, 0, 0.96);
+
+  z-index: 999999;
+
+  opacity: 0;
+  visibility: hidden;
+
+  transition: 0.6s;
+}
+
+#classified-screen.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.terminal {
+  width: 700px;
+  max-width: 90%;
+
+  background: black;
+
+  border: 2px solid #00ff41;
+
+  padding: 40px;
+
+  color: #00ff41;
+
+  font-family: monospace;
+
+  box-shadow: 0 0 35px #00ff41;
+
+  animation: flicker 0.15s infinite alternate;
+}
+
+.terminal h1,
+.terminal h2 {
+  color: #00ff41;
+  margin-bottom: 20px;
+}
+
+.terminal p {
+  margin: 10px 0;
+}
+
+.terminal-footer {
+  color: gold;
+  text-align: center;
+  margin-top: 35px;
+}
+
+/* ===========================
+   ACHIEVEMENT COUNTER
+=========================== */
+
+#achievement-counter {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+
+  background: rgba(0, 0, 0, 0.8);
+  color: var(--accent-color);
+
+  padding: 12px 18px;
+  border-radius: 30px;
+  border: 1px solid var(--primary-color);
+
+  font-weight: bold;
+  z-index: 99999;
+
+  box-shadow: 0 0 15px rgba(255, 215, 0, 0.4);
+}
+
+#achievement-popup {
+  position: fixed;
+  bottom: 75px;
+  right: 20px;
+
+  background: #001f3f;
+  color: var(--accent-color);
+
+  padding: 14px 20px;
+  border-radius: 20px;
+  border: 1px solid var(--primary-color);
+
+  opacity: 0;
+  transform: translateY(20px);
+
+  transition: all 0.4s ease;
+
+  z-index: 99999;
+  font-weight: bold;
+}
+
+#achievement-popup.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+#mission-complete {
+  margin-top: 15px;
+  padding: 10px 20px;
+  background: var(--primary-color);
+  color: var(--accent-color);
+  border: none;
+  border-radius: 20px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+#mission-complete:hover {
+  background: var(--accent-color);
+  color: var(--primary-color);
+  transform: scale(1.05);
+}
+
+#matrix-rain {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  display: none;
+  background: black;
+}
+
+.matrix-mode #matrix-rain {
+  display: block;
+}
+
+.matrix-mode .background-animation {
+  display: none;
+}
+
+/* ==========================
+   FALLING NAVY ANCHORS
+========================== */
+
+#anchor-container {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.anchor {
+  position: absolute;
+
+  top: -60px;
+
+  color: rgba(255, 215, 0, 0.75);
+
+  font-size: 32px;
+
+  animation: fall linear forwards;
+
+  user-select: none;
+}
+
+@keyframes fall {
+  from {
+    transform: translateY(-100px) rotate(0deg);
+  }
+
+  to {
+    transform: translateY(110vh) rotate(360deg);
+  }
+}
